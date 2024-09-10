@@ -1,12 +1,12 @@
-const clickDiv=querySelector(".click");
-const divtag=querySelectorAll("div")
-
-const rgbOne=Math.floor(Math.random()*256);
-const rgbTwo=Math.floor(Math.random()*256);
-const rgbThree=Math.floor(Math.random()*256);
-
+const clickDiv=document.querySelectorAll(".click");
 
 const backgroundClr=()=>{
-divtag.style.background=`rgb(${rgbOne}, ${rgbTwo}, ${rgbThree})`
+  const rgbOne=Math.floor(Math.random()*256);
+  const rgbTwo=Math.floor(Math.random()*256);
+  const rgbThree=Math.floor(Math.random()*256);
+  return `rgb(${rgbOne}, ${rgbTwo}, ${rgbThree})`;
 }
-clickDiv.addEventListener("click",backgroundClr);
+clickDiv.forEach(div =>{
+  div.addEventListener("click",()=>div.style.backgroundColor=backgroundClr());
+});
+
